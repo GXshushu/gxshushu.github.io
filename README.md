@@ -1,10 +1,5 @@
-# B站ID：湾区书记汤姆
-该博客是通过 GitHub Pages + Jekyll(主题是Chirpy) 搭建而成的
-下面是关于 Chirpy 的搭建示例~
+C9xx 博客地址: https://gxshushu.github.io/
 
+博客框架fork自tomstillcoding/tomstillcoding.github.io
 
-# Chirpy
-
-Chirpy 主题的 GitHub 链接是：[**Chirpy**][chirpy] 
-
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
+B站视频：https://www.bilibili.com/video/BV14S4y1N7Yr/?vd_source=662bfc932413037c70595e94435330ad
