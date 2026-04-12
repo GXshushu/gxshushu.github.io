@@ -3,7 +3,7 @@ title: Personal PC Assistant - AI 驱动的 Windows 桌面助手
 date: 2026-04-03
 categories: [项目]
 tags: [学习]
-pin: true
+pin: false
 author: C9xx
 
 toc: true
