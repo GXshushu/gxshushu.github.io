@@ -19,7 +19,8 @@ mermaid: true
 ---
 
 # github 项目仓库链接
-https://github.com/GXshushu/pc_assistant，欢迎 star 一下。
+https://github.com/GXshushu/pc_assistant
+欢迎 star 一下
 
 # 起于一次尝试
 之前，我对AI编程停留在局部代码的生成，主要是辅助工具，一些简单的代码生成做的非常好，但一直没有尝试过从零开始（模糊的需求）仅通过和AI对话来编写一个程序。
