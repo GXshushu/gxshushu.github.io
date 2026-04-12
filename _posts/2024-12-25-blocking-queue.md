@@ -2,7 +2,7 @@
 title: 【Java】BlockingQueue 阻塞队列
 date: 2024-12-25 21:57:34 +0800
 categories: [Java]
-tags: [学习]
+tags: [Java 学习]
 pin: false
 author: C9xx
 
