@@ -1,5 +1,5 @@
 ---
-title: Python 学习笔记 - type类
+title: Python 学习笔记 - type类和MetaClass
 date: 2026-04-12 15:54:00 +0800
 categories: [Python]
 tags: [学习]
