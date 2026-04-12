@@ -1,6 +1,6 @@
 ---
 title: Python 学习笔记 - type类
-date: 2026-04-12
+date: 2026-04-12 15:54:00 +0800
 categories: [Python]
 tags: [学习]
 pin: false
@@ -62,3 +62,6 @@ print(isinstance(MyClass, type))  # 输出：True
     - class_dict: 新创建的类的属性字典
 
 ![metaclass_new_args](/assets/blog_res/2026-04-12-pythom-study-2.assets/metaclass_new_args.png)
+
+自定义一个带参数的metaclass：
+![metaclass_with_kargs](/assets/blog_res/2026-04-12-pythom-study-2.assets/metaclass_with_kargs.png)
