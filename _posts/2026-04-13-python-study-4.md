@@ -111,3 +111,7 @@ UnboundLocalError: local variable 'count' referenced before assignment
 使用global关键字之后，函数里的count就会直接使用模块范围的变量count。
 
 如果想要引用别的文件（模块）中的变量，就要使用import关键字，直接导入别的模块，就相当于合并了模块的变量范围。
+
+# built-in范围
+
+python的所有内建函数和模块都在built-in范围中。比如print，type等等。
