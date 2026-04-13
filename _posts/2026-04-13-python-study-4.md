@@ -36,8 +36,11 @@ greeting()
 上面这个题目中，模块范围中有个count变量，第一个print是10肯定没问题
 
 第二个print在函数greeting中，执行到函数里的print的时候
+
 1. 首先寻找本地范围（函数）的count是否有count的定义
 2. 没有就去找模块范围，存在count，所以也能正常打印10。
+
+
 ---
 题目二:
 ```python
