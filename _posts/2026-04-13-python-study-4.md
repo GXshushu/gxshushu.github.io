@@ -1,5 +1,5 @@
 ---
-title: Python 学习笔记 - 变量范围与global
+title: Python 学习笔记 - 变量范围、global与nonlocal
 date: 2026-04-13 14:21:00 +0800
 categories: [Python]
 tags: [Python 学习]
@@ -115,3 +115,125 @@ UnboundLocalError: local variable 'count' referenced before assignment
 # built-in范围
 
 python的所有内建函数和模块都在built-in范围中。比如print，type等等。
+
+# nonlocal关键字
+
+首先需要先拓展一下nonlocal范围。对于前面所讲的变量作用范围，在存在嵌套函数的情况下，表现为如下层次。
+![nonlocal范围](/assets/blog_res/2026-04-13-python-study-4.assets/nonlocal.png)
+
+在嵌套函数的情况下
+
+```python
+message = "module"
+def outer():
+    message = "outer"
+    def inner():
+        message = "inner"
+
+        print(message) # inner
+    inner()
+    print(message) # outer
+
+outer()
+print(message) # module
+```
+
+对于print内部的message变量来说，inner内部是local范围，outer与inner之间是nonlocal范围，module字符串是模块范围。
+
+print会依照就近原则获取到`message = "inner"`这个变量。使用nonlocal关键字之后，inner函数里的message就会直接使用outer函数的message变量。这时outer函数里的message变量也会被修改为"inner"。所以第二个print也会打印"inner"。
+
+```python
+message = "module"
+def outer():
+    message = "outer"
+    def inner():
+        nonlocal message
+        message = "inner"
+
+        print(message) # inner
+    inner()
+    print(message) # inner
+
+outer()
+print(message) # module
+```
+
+如果outer中不存在message的声明，inner使用nonlocal关键字定义的message变量，就会直接报错。因为模块的message要用global关键字来声明引用。
+
+```python
+message = "module"
+def outer():
+    # message = "outer"
+    def inner():
+        nonlocal message # error 
+        message = "inner"
+
+        print(message) 
+    inner()
+    print(message) 
+
+outer()
+print(message) 
+```
+
+```
+    nonlocal message
+    ^
+SyntaxError: no binding for nonlocal 'message' found
+```
+
+如果是多层嵌套的情况，最内层的函数通过nonlocal获取变量的时候，会从内到外逐层查找函数范围，直到找到变量为止。以下三个例子可以很好的证明这一点：
+
+```python
+message = "module"
+def outer():
+    message = "outer"
+    def inner_1():
+        def inner_2():
+            nonlocal message
+            print(message) # outer
+        inner_2()
+        print(message) # outer
+    inner_1()
+    print(message) # outer
+
+outer()
+print(message) # module
+```
+
+```python
+message = "module"
+def outer():
+    message = "outer"
+    def inner_1():
+        message = "inner1"
+        def inner_2():
+            nonlocal message
+            print(message) # inner1
+        inner_2()
+        print(message) # inner1
+    inner_1()
+    print(message) # outer
+
+outer()
+print(message) # module
+```
+
+```python
+message = "module"
+def outer():
+    message = "outer"
+    def inner_1():
+        message = "inner1"
+        def inner_2():
+            nonlocal message
+            message = "inner2"
+            print(message) # inner2
+        inner_2()
+        print(message) # inner2
+    inner_1()
+    print(message) # outer
+
+outer()
+print(message) # module
+```
