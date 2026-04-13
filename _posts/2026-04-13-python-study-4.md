@@ -1,5 +1,5 @@
 ---
-title: Python 学习笔记 - 变量范围与nonlocal
+title: Python 学习笔记 - 变量范围与global
 date: 2026-04-13 14:21:00 +0800
 categories: [Python]
 tags: [Python 学习]
