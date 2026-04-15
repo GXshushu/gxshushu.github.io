@@ -15,13 +15,14 @@ platforms:
   #   icon: "fab fa-telegram"
   #   link: "https://t.me/share/url?url=URL&text=TITLE"
   -
-    type: QQ
-    icon: "fab fa-qq"
-    link: "https://connect.qq.com/widget/shareqq/index.html?url=URL&title=TITLE"
-  -
-    type: Wechat
-    icon: "fab fa-weixin"
-    link: "https://api.addthis.com/oexchange/0.8/forward/wechat/?url=URL"
+  #   type: QQ
+  #   icon: "fab fa-qq"
+  #   # link: "https://connect.qq.com/widget/shareqq/index.html?url=URL&title=TITLE"
+  #   link: "http://connect.qq.com/widget/shareqq/index.html?url=URL&sharesource=qzone&title=TITLE"
+  # -
+  #   type: Wechat
+  #   icon: "fab fa-weixin"
+  #   link: "https://api.addthis.com/oexchange/0.8/forward/wechat/?url=URL"
 
   # Uncomment below if you need to.
   # -
