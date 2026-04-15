@@ -179,6 +179,7 @@ let {hostname:domain, pathname:path} = location;
 ```
 
 - 如果一个函数接收一个对象作为参数，那么，可以使用解构直接把对象的属性绑定到变量中。例如，下面的函数可以快速创建一个Date对象：
+
 ```javascript
 function buildDate({year, month, day, hour=0, minute=0, second=0}) {
     return new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}`);
