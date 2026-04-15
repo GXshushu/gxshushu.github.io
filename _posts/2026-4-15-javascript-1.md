@@ -101,7 +101,7 @@ MYAPP.foo = function () {
 
 # 解构赋值
 从ES6开始，JavaScript引入了解构赋值，可以同时对一组变量进行赋值。`let [x, y, z] = ['hello', 'JavaScript', 'ES6'];`
-```JavaScript
+```javascript
 let [x, [y, z]] = ['hello', ['JavaScript', 'ES6']];
 x; // 'hello'
 y; // 'JavaScript'
