@@ -26,7 +26,12 @@ mermaid: true
 
 > "加一个工具, 只加一个 handler" -- 循环不用动, 新工具注册进 dispatch map 就行。
 
-## 实现
+# Harness 层次
+Tools系统的设计属于Harness的L2层。
+
+![alt text](/assets/blog_res/2026-04-14-learn-claude-code-1.assets/harness.png)
+
+# 实现
 
 1. 定义每个工具的回调函数（处理函数）,`run_read`:
 
