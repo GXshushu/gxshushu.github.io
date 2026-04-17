@@ -28,7 +28,7 @@ mermaid: true
 
 ## 实现
 
-1. 定义每个工具的回调函数（处理函数）,run_read:
+1. 定义每个工具的回调函数（处理函数）,`run_read`:
 
 ```python
 def safe_path(p: str) -> Path:
@@ -44,7 +44,7 @@ def run_read(path: str, limit: int = None) -> str:
         lines = lines[:limit]
     return "\n".join(lines)[:50000]
 ```
-1. 定义一个 dispatch map，将每个工具的回调函数通过匿名函数的方式注册到 map 中
+1. 定义一个`dispatch map`，将每个工具的回调函数通过匿名函数的方式注册到map中
 
 ```python
 TOOL_HANDLERS = {
@@ -70,7 +70,7 @@ for block in response.content:
 ```
 
 # 改进
-这个项目的tools的处理都是基于Linux的，例如run_bash中，llm返回的执行参数都是linux bash命令，在windows环境下会发生异常。为了在windows环境下正常运行，我们需要对tools的处理进行改进。
+这个项目的tools的处理都是基于Linux的，例如`run_bash`中，LLM返回的执行参数都是linux bash命令，在windows环境下会发生异常。为了在windows环境下正常运行，我们需要对tools的处理进行改进。
 
 例如run bash中，我们对于不同平台的差异在于LLM返回的命令，所以只需要在提示词中补充一下系统描述即可。这种环境信息最好要集成到上下文描述中，在可能会存在平台差异的地方需要LLM根据环境进行判断。
 
