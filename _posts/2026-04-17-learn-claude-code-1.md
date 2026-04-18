@@ -18,7 +18,7 @@ mermaid: true
 
 [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code)
 
-# Tools引入
+# Tools 引入
 
 在传统和web chat的AI工具进行协作的时候，更多是AI教你怎么去做，而没有办法让AI直接去做，如果我们给AI一双手去触及我们的项目或者环境，那么AI就能代替我们直接去进行创造和试错。
 
@@ -29,7 +29,7 @@ mermaid: true
 # Harness 层次
 Tools系统的设计属于Harness的L2层，扩展模型能触达的边界。
 
-![alt text](/assets/blog_res/2026-04-14-learn-claude-code-1.assets/harness.png)
+![alt text](/assets/blog_res/2026-04-17-learn-claude-code-1.assets/harness.png)
 
 # 实现
 

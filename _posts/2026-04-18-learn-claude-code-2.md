@@ -27,7 +27,7 @@ mermaid: true
 # Harness 层次
 s03属于Harness的L3层，执行编排层。
 
-![alt text](/assets/blog_res/2026-04-14-learn-claude-code-1.assets/harness.png)
+![alt text](/assets/blog_res/2026-04-17-learn-claude-code-1.assets/harness.png)
 
 # 具体实现
 
