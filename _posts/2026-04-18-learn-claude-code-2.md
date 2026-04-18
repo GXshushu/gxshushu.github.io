@@ -22,18 +22,18 @@ mermaid: true
 >
 > Harness 层: 规划 -- 让模型不偏航, 但不替它画航线。
 
-有点像在ReAct模式上结合Plan and Execute的模式的感觉。
+有点像在 ReAct 模式上结合 Plan and Execute 的模式的感觉。
 
 # Harness 层次
-s03属于Harness的L3层，执行编排层。
+s03 属于 Harness 的 L3 层，执行编排层。
 
 ![alt text](/assets/blog_res/2026-04-17-learn-claude-code-1.assets/harness.png)
 
 # 具体实现
 
-s03通过设计了一个`TodoManager`，然后作为工具引入，注册到工具路由中，由LLM进行主动调用来管理这个规划列表。
+s03 通过设计了一个`TodoManager`，然后作为工具引入，注册到工具路由中，由 LLM 进行主动调用来管理这个规划列表。
 
-Toda list 的预期效果
+Todo list 的预期效果
 ```
 +-----------+-----------+
 | TodoManager state     |
@@ -43,10 +43,10 @@ Toda list 的预期效果
 +-----------------------+
 ```
 
-列表存在多项任务（字符串描述），每项任务有一个状态（pending / in_progress / completed）
-in_progress只能有唯一一项。
+列表存在多项任务（字符串描述），每项任务有一个状态（ pending / in_progress / completed ）
+in_progress 只能有唯一一项。
 
-因此TodaManager需要内置一个列表数据结构用以存储待办事项。
+因此`TodoManager`需要内置一个列表数据结构用以存储待办事项。
 
 ```python
 class TodoManager:
@@ -55,7 +55,7 @@ class TodoManager:
 ```
 
 
-TodoManager需要对外开放两个方法，首先是update方法，由LLM进行调用，更新整个待办列表。
+`TodoManager`需要对外开放两个方法，首先是`update`方法，由 LLM 行调用，更新整个待办列表。
 ```python
 def update(self, items: list) -> str:
     # 设定最大待办事项数量
@@ -82,7 +82,7 @@ def update(self, items: list) -> str:
     return self.render()
 ```
 
-可以看到update方法最后还会进行render之后返回LLM，这是为了保证待办事项的最新状态会返回给LLM，在LLM上下文中位于最新的区域中，不至于遗忘和跑偏，让LLM去处理规划中当前应该做的任务。
+可以看到`update`方法最后还会进行`render`方法之后返回 LLM ，这是为了保证待办事项的最新状态会返回给 LLM ，在 LLM 上下文中位于最新的区域中，不至于遗忘和跑偏，让 LLM 去处理规划中当前应该做的任务。
 
 ```python
 def render(self) -> str:
@@ -97,7 +97,7 @@ def render(self) -> str:
     return "\n".join(lines)
 ```
 
-注册到TOOLS dispatch map中，要求LLM调用时需要三个参数(id, text, status)，同时要求status是pending,in_progress,completed中的一个。
+注册到 TOOLS `dispatch map`中，要求 LLM 调用时需要三个参数(id, text, status)，同时要求 status 是 pending, in_progress, completed 中的一个。
 
 ```python
 TOOLS = [
@@ -107,7 +107,7 @@ TOOLS = [
 ]
 ```
 
-同时在系统提示词中提到让LLM去调用todo工具去计划多步任务。
+同时在系统提示词中提到让 LLM 去调用 todo 工具去计划多步任务。
 
 ```python
 SYSTEM = f"""You are a coding agent at {WORKDIR}.
@@ -117,7 +117,7 @@ Prefer tools over prose."""
 
 # Nag注入
 
-如果在一个步骤中执行过长，可能会导致LLM忘记调用TodoManager工具来更新待办事项的状态。在s03中，我们可以通过nag reminder，模型连续 3 轮以上不调用 todo 时注入提醒来催促LLM去调用todo工具来更新待办事项的状态。
+如果在一个步骤中执行过长，可能会导致 LLM 忘记调用`TodoManager`工具来更新待办事项的状态。在 s03 中，我们可以通过`nag reminder`，模型连续 3 轮以上不调用 todo 时注入提醒来催促 LLM 去调用 todo 工具来更新待办事项的状态。
 ```python
 used_todo = False
 for block in response.content:
