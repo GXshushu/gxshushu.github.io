@@ -143,7 +143,7 @@ def run_subagent(prompt: str, description: str = "subtask") -> str:
 - discovery: 发现有哪些 skill 可用, 只需要很轻量的信息 (skill 名字, 一句描述)。
 - loading: 把某个 skill 的完整正文真正读进来。(昂贵)
 
-在LLM需要一个领域的知识的时候，从提示词中发现自己可用的skill，然后调用loading方法加载该skill的完整正文。
+在LLM需要一个领域的知识的时候，从提示词中发现自己可用的 skill ，然后调用`loading`方法加载该 skill 的完整正文。
 
 ```
 load_skill("code-review")
@@ -166,7 +166,7 @@ L1 ：信息边界层
 
 ## 2.3 具体实现
 
-我们独立在项目中创建一个skill文件夹，里面每个文件夹管理一个领域的skill，每个领域有一个SKILL.md文件(必须，还可以放一些脚本文件)，文件内容就是该领域的skill。
+我们独立在项目中创建一个 skill 文件夹，里面每个文件夹管理一个领域的 skill，每个领域有一个 SKILL.md 文件(必须，还可以放一些脚本文件)，文件内容就是该领域的 skill。
 
 ```
 skills/
@@ -177,7 +177,7 @@ skills/
 ```
 
 实现了一个`SkillLoader`类，封装对SKILL的操作。
-为了避免LLM调用的时候再进行文件io，我们在初始化SkillLoader时就加载所有skill到skills字典（内存）中。
+为了避免 LLM 调用的时候再进行文件io，我们在初始化`SkillLoader`时就加载所有 skill 到 skills 字典（内存）中。
 
 ```python
 # -- SkillLoader: scan skills/<name>/SKILL.md with YAML frontmatter --
@@ -233,7 +233,7 @@ SKILLS_DIR = WORKDIR / "skills"
 SKILL_LOADER = SkillLoader(SKILLS_DIR)
 ```
 
-实现中将一份Skill分成了两层，第一层是发现有哪些skill可用（元信息），第二层是加载skill的完整正文。
+实现中将一份 Skill 分成了两层，第一层是发现有哪些 skill 可用（元信息），第二层是加载 skill 的完整正文。
 
 ```
 第 1 层: 轻量目录
@@ -246,7 +246,7 @@ SKILL_LOADER = SkillLoader(SKILLS_DIR)
   - 通过工具结果注入当前上下文
 ```
 
-对于第一层而言，我们在LLM的系统提示词中调用SkillLoader.get_descriptions告诉模型有哪些skill可用，以及每个skill的简单描述。
+对于第一层而言，我们在LLM的系统提示词中调用`SkillLoader.get_descriptions`告诉模型有哪些skill可用，以及每个skill的简单描述。
 
 ```python
 # Layer 1: skill metadata injected into system prompt
@@ -257,7 +257,7 @@ Skills available:
 {SKILL_LOADER.get_descriptions()}"""
 ```
 
-对于第二层的实现，复用之前tools的设定，将load_skill作为工具引入到项目之中。
+对于第二层的实现，复用之前 tools 的设定，将`load_skill`作为工具引入到项目之中。
 
 ```python
 
@@ -274,5 +274,5 @@ TOOLS = [
 
 ```
 
-这样LLM就会根据系统提示词披露的skill元信息列表，调用load_skill工具，加载该skill的完整正文，以tool_result的方式注入到当前上下文。
+这样LLM就会根据系统提示词披露的skill元信息列表，调用`load_skill`工具，加载该 skill 的完整正文，以 tool_result 的方式注入到当前上下文。
 
