@@ -1,6 +1,24 @@
+---
+title: 最近学习思路
+date: 2026-04-20 14:09:00 +0800
+categories: [随笔]
+tags: [随笔]
+pin: false
+author: C9xx
 
+toc: true
+comments: true
+typora-root-url: ../../gxshushu.github.io
+math: false
+mermaid: true
+---
 
 ## 1 红山动物园
+
+购票：直接搜南京市红山森岭动物园公众号在线购票，或者美团直接搜买学生票，身份证入园，提前一天以上购票，工作日成人票60，学生票30。
+![alt text](/assets/blog_res/2026-04-20-nanjing-travel-plan.assets/buy-ticket.jpg)
+
+![alt text](/assets/blog_res/2026-04-20-nanjing-travel-plan.assets/meituan-ticket.jpg)
 
 必带：集章用的本子、充电宝、能方便装下文创物品的包
 - 开放时间 8:30 - 16:30 16:30后停止入园
