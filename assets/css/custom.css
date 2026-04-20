@@ -1,0 +1,182 @@
+/* ===== Custom Styles for tonite14.github.io ===== */
+
+/* ===== Background Image (on html, always behind everything) ===== */
+html {
+    background: url("/assets/config/background.jpg") center/cover no-repeat fixed !important;
+  }
+  
+  /* ===== Semi-transparent overlay on body ===== */
+  body {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+  }
+  
+  html[data-mode="dark"] body,
+  [data-mode="dark"] body {
+    background-color: rgba(15, 15, 20, 0.75) !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) body {
+      background-color: rgba(15, 15, 20, 0.75) !important;
+    }
+  }
+  
+  /* ===== Make Chirpy containers transparent so bg shows through ===== */
+  #main-wrapper,
+  #main-wrapper .container,
+  #core-wrapper,
+  footer {
+    background-color: transparent !important;
+  }
+  
+  /* ===== Topbar: keep solid background ===== */
+  #topbar-wrapper {
+    background-color: #ffffff !important;
+  }
+  
+  [data-mode="dark"] #topbar-wrapper {
+    background-color: #1d1d27 !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #topbar-wrapper {
+      background-color: #1d1d27 !important;
+    }
+  }
+  
+  /* ===== Sidebar background image ===== */
+  /* #sidebar {
+    background: url("/assets/config/sidebar.jpg") center center no-repeat !important;
+    background-size: cover !important;
+  }
+  
+  #sidebar::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-color: rgba(255, 255, 255, 0.65) !important;
+    z-index: 0 !important;
+  }
+  
+  #sidebar > * {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  [data-mode="dark"] #sidebar::before {
+    background-color: rgba(15, 15, 20, 0.65) !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #sidebar::before {
+      background-color: rgba(15, 15, 20, 0.65) !important;
+    }
+  }
+   */
+  /* ===== Glass card for post list ===== */
+  #post-list .post-preview {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(200, 200, 200, 0.30) !important;
+    border-radius: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    padding: 1rem 1.25rem !important;
+    transition: background 0.2s ease, transform 0.15s ease !important;
+  }
+  
+  #post-list .post-preview:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  #post-list .post-preview .card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  
+  #post-list .post-preview .card-body {
+    padding: 0 !important;
+  }
+  
+  #post-list .post-preview .card-title,
+  #post-list .post-preview .card-title a {
+    color: #111 !important;
+    font-weight: 700 !important;
+  }
+  
+  #post-list .post-preview .post-content,
+  #post-list .post-content p {
+    color: #222 !important;
+  }
+  
+  #post-list .post-preview .post-meta {
+    color: #555 !important;
+  }
+  
+  /* ===== Friend link descriptions ===== */
+  .friend-desc {
+    color: #444 !important;
+  }
+  
+  [data-mode="dark"] .friend-desc {
+    color: #d0d0d0 !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) .friend-desc {
+      color: #d0d0d0 !important;
+    }
+  }
+  
+  /* ===== Dark mode cards ===== */
+  [data-mode="dark"] #post-list .post-preview {
+    background: rgba(30, 30, 38, 0.30) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #post-list .post-preview {
+      background: rgba(30, 30, 38, 0.30) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+  }
+  
+  [data-mode="dark"] #post-list .post-preview:hover {
+    background: rgba(45, 45, 55, 0.30) !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #post-list .post-preview:hover {
+      background: rgba(45, 45, 55, 0.30) !important;
+    }
+  }
+  
+  [data-mode="dark"] #post-list .post-preview .card-title,
+  [data-mode="dark"] #post-list .post-preview .card-title a {
+    color: #e5e5e5 !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #post-list .post-preview .card-title,
+    html:not([data-mode]) #post-list .post-preview .card-title a {
+      color: #e5e5e5 !important;
+    }
+  }
+  
+  [data-mode="dark"] #post-list .post-preview .post-content p {
+    color: #b5b5c0 !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) #post-list .post-preview .post-content p {
+      color: #b5b5c0 !important;
+    }
+  }
