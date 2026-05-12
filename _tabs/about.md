@@ -30,12 +30,11 @@ order: 4
   font-size: 12px;
   text-align: center;
 }
-#site-pet img {
+#site-pet object {
   width: 80px;
   height: auto;
   animation: pet-bounce 1s ease-in-out infinite;
   pointer-events: none;
-  -webkit-pointer-events: none;
 }
 #site-pet .speech {
   background: white;
@@ -56,7 +55,7 @@ order: 4
 
 <div id="site-pet">
   <div class="speech">喵~ 摸摸我！🐱</div>
-  <img src="https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif" alt="pet" draggable="false">
+  <object data="https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif" type="image/gif" draggable="false"></object>
 </div>
 
 <script>
