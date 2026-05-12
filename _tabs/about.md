@@ -30,13 +30,12 @@ order: 4
   font-size: 12px;
   text-align: center;
 }
-#site-pet .pet-img {
+#site-pet img {
   width: 80px;
-  height: 80px;
-  background-size: cover;
-  background-position: center;
+  height: auto;
   animation: pet-bounce 1s ease-in-out infinite;
-  border-radius: 50%;
+  pointer-events: none;
+  -webkit-pointer-events: none;
 }
 #site-pet .speech {
   background: white;
@@ -57,13 +56,14 @@ order: 4
 
 <div id="site-pet">
   <div class="speech">喵~ 摸摸我！🐱</div>
-  <div class="pet-img" style="background-image: url('https://cdn.jsdelivr.net/gh/rlgomes/pusheen_gifs@master/gifs/wave.gif');"></div>
+  <img src="https://cdn.jsdelivr.net/gh/rlgomes/pusheen_gifs@master/gifs/wave.gif" alt="pet" draggable="false">
 </div>
 
 <script>
 const pet = document.getElementById('site-pet');
 const messages = ['喵~ 你好呀！', '今天也要加油哦~', '一起学习吧！', '好无聊啊...', '给我看看代码？'];
-pet.addEventListener('click', () => {
+pet.addEventListener('click', (e) => {
+  e.preventDefault();
   const msg = messages[Math.floor(Math.random() * messages.length)];
   pet.querySelector('.speech').textContent = msg;
   pet.querySelector('.speech').style.display = 'block';
