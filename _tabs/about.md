@@ -20,27 +20,7 @@ order: 4
 
 ---
 
-<script src="https://cdn.jsdelivr.net/gh/liuchengkai/web-pet@main/dist/web-pet.js"></script>
-<div id="pet-container"></div>
+<script src="https://derdere.github.io/site-pet/site-pet.js"></script>
 <script>
-  const pet = WebPet.createPet({
-    style: {
-      right: '20px',
-      bottom: '20px',
-      position: 'fixed',
-      width: '100px',
-      height: '100px',
-      zIndex: 99999
-    },
-    happiness_decreasing: {
-      time: 1000,
-      value: 1
-    },
-    wander_interval: {
-      min: 500,
-      max: 10000
-    },
-    img_url: 'https://cdn.jsdelivr.net/gh/liuchengkai/web-pet@main/resources/img/pet.png'
-  });
-  pet.mount('#pet-container');
+  var ele = createSitePet('example');
 </script>
