@@ -56,7 +56,7 @@ order: 4
 
 <div id="site-pet">
   <div class="speech">喵~ 摸摸我！🐱</div>
-  <img src="https://cdn.jsdelivr.net/gh/rlgomes/pusheen_gifs@master/gifs/wave.gif" alt="pet" draggable="false">
+  <img src="https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif" alt="pet" draggable="false">
 </div>
 
 <script>
