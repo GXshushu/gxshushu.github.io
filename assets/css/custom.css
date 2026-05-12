@@ -180,3 +180,49 @@ html {
       color: #b5b5c0 !important;
     }
   }
+
+/* ===== Site Pet (Global) ===== */
+#site-pet {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+}
+#site-pet .pet-gif {
+  width: 80px;
+  height: 80px;
+  background-image: url('https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: pet-bounce 1s ease-in-out infinite;
+}
+#site-pet .speech {
+  background: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none;
+  white-space: nowrap;
+}
+#site-pet:hover .speech {
+  display: block;
+}
+@keyframes pet-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+[data-mode="dark"] #site-pet .speech {
+  background: #2d2d35;
+  color: #e5e5e5;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) #site-pet .speech {
+    background: #2d2d35;
+    color: #e5e5e5;
+  }
+}

@@ -1,0 +1,25 @@
+<!-- Site Pet Widget -->
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var petHtml = '<div id="site-pet">' +
+      '<div class="speech">喵~ 摸摸我！🐱</div>' +
+      '<div class="pet-gif"></div>' +
+    '</div>';
+    document.body.insertAdjacentHTML('beforeend', petHtml);
+    
+    var pet = document.getElementById('site-pet');
+    var messages = ['喵~ 你好呀！', '今天也要加油哦~', '一起学习吧！', '好无聊啊...', '给我看看代码？', '喵喵喵~', '摸摸头~'];
+    
+    pet.addEventListener('click', function(e) {
+      e.preventDefault();
+      var msg = messages[Math.floor(Math.random() * messages.length)];
+      pet.querySelector('.speech').textContent = msg;
+      pet.querySelector('.speech').style.display = 'block';
+      setTimeout(function() {
+        pet.querySelector('.speech').style.display = 'none';
+      }, 2000);
+    });
+  });
+})();
+</script>
