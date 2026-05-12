@@ -54,7 +54,7 @@ order: 4
 
 <div id="site-pet">
   <div class="speech">喵~ 摸摸我！🐱</div>
-  <img src="https://raw.githubusercontent.com/idleberg/Pusheen-2.0/master/animated/pusheen-walk.gif" alt="pet">
+  <img src="https://media.tenor.com/GQAsycjoZG8AAAAi/scuba-scuba-cat.gif" alt="pet">
 </div>
 
 <script>
